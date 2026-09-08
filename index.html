@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng ký mượn giày Kailas FUGA trải nghiệm — VMM 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a;
+    --white:#ffffff;
+    --pink:#f824b9;
+    --pink-deep:#c9139a;
+    --pink-tint:#fdeaf8;
+    --grey:#6f6f6f;
+    --line:#e6e6e6;
+    --paper:#faf9f9;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--black);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Oswald',sans-serif;
+    letter-spacing:.01em;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    background:var(--black);
+    color:var(--white);
+    padding:28px 24px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .tags{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:26px;
+  }
+  .tag{
+    border:1px solid rgba(255,255,255,.35);
+    color:var(--white);
+    font-size:12.5px;
+    font-weight:500;
+    padding:6px 12px;
+    border-radius:999px;
+  }
+  .tag.pink{
+    background:var(--pink);
+    border-color:var(--pink);
+    color:var(--black);
+    font-weight:600;
+  }
+  .header-inner{
+    max-width:560px;
+    margin:0 auto;
+    padding-bottom:34px;
+  }
+  header h1{
+    font-size:clamp(30px,7vw,42px);
+    line-height:1.08;
+    margin:0 0 14px;
+    font-weight:600;
+  }
+  header h1 span{color:var(--pink);}
+  header p{
+    font-size:15px;
+    line-height:1.6;
+    color:rgba(255,255,255,.72);
+    max-width:440px;
+    margin:0;
+  }
+  .ridge{
+    display:block;
+    width:100%;
+    height:46px;
+  }
+
+  /* ---------- LAYOUT ---------- */
+  main{
+    max-width:560px;
+    margin:0 auto;
+    padding:36px 24px 60px;
+  }
+  form > .section + .section{
+    margin-top:38px;
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:16px;
+    padding-left:12px;
+    border-left:3px solid var(--pink);
+  }
+  .section-head h2{
+    font-size:18px;
+    font-weight:600;
+    margin:0;
+  }
+  .section-head small{
+    color:var(--grey);
+    font-size:12.5px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .field{
+    margin-bottom:16px;
+  }
+  .field.full{grid-column:1/-1;}
+  .field label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:7px;
+    color:var(--black);
+  }
+  .field label .req{color:var(--pink-deep);}
+  .field label .opt{
+    color:var(--grey);
+    font-weight:400;
+  }
+  input[type=text],
+  input[type=tel],
+  input[type=email],
+  input[type=number],
+  select,
+  textarea{
+    width:100%;
+    border:1.5px solid var(--line);
+    background:var(--white);
+    border-radius:8px;
+    padding:12px 13px;
+    font-family:'Inter',sans-serif;
+    font-size:14.5px;
+    color:var(--black);
+    outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  input::placeholder, textarea::placeholder{color:#b7b7b7;}
+  input:focus, select:focus, textarea:focus{
+    border-color:var(--pink);
+    box-shadow:0 0 0 3px var(--pink-tint);
+  }
+  textarea{resize:vertical;min-height:90px;line-height:1.5;}
+  select{
+    appearance:none;
+    -webkit-appearance:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%236f6f6f' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat:no-repeat;
+    background-position:right 13px center;
+    padding-right:34px;
+  }
+
+  .shoe-options{
+    display:grid;
+    gap:10px;
+  }
+  .shoe-card{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    border:1.5px solid var(--line);
+    border-radius:10px;
+    padding:12px 14px;
+    cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .shoe-card:hover{border-color:#d9d9d9;}
+  .shoe-card input{accent-color:var(--pink);width:16px;height:16px;flex:none;}
+  .shoe-card .name{font-weight:600;font-size:14.5px;}
+  .shoe-card .tagline{font-size:12.5px;color:var(--grey);margin-top:2px;}
+  .shoe-card:has(input:checked){
+    border-color:var(--pink);
+    background:var(--pink-tint);
+  }
+
+  .size-other{
+    margin-top:10px;
+    display:none;
+  }
+  .size-other.show{display:block;}
+
+  .radio-row{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .radio-pill{
+    border:1.5px solid var(--line);
+    border-radius:8px;
+    padding:12px 14px;
+    text-align:left;
+    font-size:14px;
+    font-weight:500;
+    line-height:1.4;
+    cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .radio-pill input{
+    display:none;
+  }
+  .radio-pill:has(input:checked){
+    border-color:var(--pink);
+    background:var(--pink-tint);
+    color:var(--pink-deep);
+    font-weight:600;
+  }
+
+  .submit-btn{
+    width:100%;
+    background:var(--black);
+    color:var(--white);
+    border:none;
+    border-radius:8px;
+    padding:15px;
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:8px;
+    transition:background .15s ease;
+  }
+  .submit-btn:hover{background:var(--pink-deep);}
+  .fine-print{
+    font-size:12px;
+    color:var(--grey);
+    text-align:center;
+    margin-top:14px;
+    line-height:1.6;
+  }
+
+  /* success state */
+  #success{
+    display:none;
+    text-align:center;
+    padding:50px 10px 20px;
+  }
+  #success .mark{
+    width:56px;height:56px;border-radius:50%;
+    background:var(--pink-tint);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 20px;
+  }
+  #success h2{font-size:22px;margin:0 0 10px;}
+  #success p{color:var(--grey);font-size:14.5px;line-height:1.6;max-width:360px;margin:0 auto;}
+
+  @media (max-width:480px){
+    .grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="tags">
+      <span class="tag pink">#KailasFUGATrailLab</span>
+      <span class="tag">#KailasFUGAxVMM2026</span>
+    </div>
+    <h1>Mượn giày <span>Kailas FUGA</span> trải nghiệm</h1>
+    <p>Dành cho các VĐV tham gia Vietnam Mountain Marathon 2026. Điền thông tin bên dưới để đăng ký mượn một đôi FUGA chạy thử trên cung đường của bạn.</p>
+  </div>
+  <svg class="ridge" viewBox="0 0 560 46" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 46 L0 34 L60 14 L110 30 L170 8 L230 26 L290 4 L350 24 L410 12 L470 28 L520 16 L560 30 L560 46 Z" fill="#faf9f9"/>
+    <path d="M0 34 L60 14 L110 30 L170 8 L230 26 L290 4 L350 24 L410 12 L470 28 L520 16 L560 30" fill="none" stroke="#f824b9" stroke-width="2"/>
+  </svg>
+</header>
+
+<main>
+  <form id="fugaForm">
+
+    <div class="section">
+      <div class="section-head">
+        <h2>Thông tin liên hệ</h2>
+      </div>
+      <div class="field">
+        <label>Họ và tên <span class="req">*</span></label>
+        <input type="text" name="hoTen" placeholder="Nguyễn Văn A" required>
+      </div>
+      <div class="grid">
+        <div class="field">
+          <label>Số điện thoại <span class="req">*</span></label>
+          <input type="tel" name="sdt" placeholder="09xx xxx xxx" required>
+        </div>
+        <div class="field">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="ban@email.com" required>
+        </div>
+      </div>
+      <div class="field">
+        <label>Instagram <span class="opt">(không bắt buộc)</span></label>
+        <input type="text" name="instagram" placeholder="@username">
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2>Hồ sơ thi đấu</h2>
+      </div>
+      <div class="grid">
+        <div class="field">
+          <label>Chỉ số ITRA <span class="opt">(nếu có)</span></label>
+          <input type="text" name="itra" placeholder="Ví dụ: 420">
+        </div>
+        <div class="field">
+          <label>Cự ly tham gia VMM <span class="req">*</span></label>
+          <select name="cuLy" required>
+            <option value="" disabled selected>Chọn cự ly</option>
+            <option>15km</option>
+            <option>21km</option>
+            <option>42km</option>
+            <option>70km</option>
+            <option>100km</option>
+            <option>160km</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Thời gian hoàn thành dự kiến <span class="req">*</span></label>
+        <input type="text" name="thoiGian" placeholder="Ví dụ: 12 giờ 30 phút" required>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2>Chọn giày trải nghiệm</h2>
+        <small>Chọn 1 mẫu</small>
+      </div>
+      <div class="shoe-options">
+        <label class="shoe-card">
+          <input type="radio" name="mauGiay" value="Kailas FUGA EX330" required>
+          <div>
+            <div class="name">Kailas FUGA EX330</div>
+            <div class="tagline">Đệm dày, êm ái, siêu bám — dành cho cự ly Ultra</div>
+          </div>
+        </label>
+        <label class="shoe-card">
+          <input type="radio" name="mauGiay" value="Kailas FUGA EX3">
+          <div>
+            <div class="name">Kailas FUGA EX3</div>
+            <div class="tagline">Đệm êm, siêu bám — dành cho mọi runners</div>
+          </div>
+        </label>
+        <label class="shoe-card">
+          <input type="radio" name="mauGiay" value="Kailas FUGA EX Pro">
+          <div>
+            <div class="name">Kailas FUGA EX Pro</div>
+            <div class="tagline">Có đệm Carbon chữ X — dành cho các VĐV duy trì tốc độ cao</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="field" style="margin-top:16px;">
+        <label>Size giày (FB) <span class="req">*</span></label>
+        <select name="size" id="sizeSelect" required>
+          <option value="" disabled selected>Chọn size</option>
+          <option>37</option><option>38</option><option>39</option><option>40</option>
+          <option>41</option><option>42</option><option>43</option><option>44</option>
+          <option>45</option><option>46</option>
+          <option value="Khác">Size khác</option>
+        </select>
+        <div class="field size-other" id="sizeOtherWrap">
+          <label>Ghi rõ size khác</label>
+          <input type="text" name="sizeKhac" id="sizeOtherInput" placeholder="Ví dụ: 46.5 hoặc theo cm">
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <h2>Trải nghiệm với Kailas FUGA</h2>
+      </div>
+      <div class="field">
+        <label>Bạn đã từng dùng giày/sản phẩm nào của Kailas FUGA chưa? <span class="req">*</span></label>
+        <div class="radio-row">
+          <label class="radio-pill">
+            <input type="radio" name="daDung" value="Chưa từng sử dụng sản phẩm nào của Kailas" required>
+            Chưa từng sử dụng sản phẩm nào của Kailas.
+          </label>
+          <label class="radio-pill">
+            <input type="radio" name="daDung" value="Đã và đang dùng dòng giày Kailas FUGA">
+            Đã và đang dùng dòng giày Kailas FUGA.
+          </label>
+          <label class="radio-pill">
+            <input type="radio" name="daDung" value="Đã từng dùng các sản phẩm khác (Quần áo, gậy, vest nước,...)">
+            Đã từng dùng các sản phẩm khác (Quần áo, gậy, vest nước,...).
+          </label>
+        </div>
+      </div>
+      <div class="field full">
+        <label>Lý do bạn muốn mượn trải nghiệm là gì? <span class="req">*</span></label>
+        <textarea name="lyDo" placeholder="Chia sẻ ngắn gọn lý do bạn muốn thử FUGA cho giải VMM 2026..." required></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn">Gửi đăng ký</button>
+    <p class="fine-print">Đội ngũ Kailas sẽ liên hệ qua SĐT/email để xác nhận lịch mượn giày.<br>Số lượng giới hạn, ưu tiên theo thứ tự đăng ký.</p>
+  </form>
+
+  <div id="success">
+    <div class="mark">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6" stroke="#f824b9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2>Đã nhận đăng ký của bạn</h2>
+    <p>Cảm ơn bạn đã đăng ký mượn giày Kailas FUGA trải nghiệm cho VMM 2026. Đội ngũ Kailas sẽ liên hệ trong thời gian sớm nhất để xác nhận chi tiết.</p>
+  </div>
+</main>
+
+<script>
+  const sizeSelect = document.getElementById('sizeSelect');
+  const sizeOtherWrap = document.getElementById('sizeOtherWrap');
+  const sizeOtherInput = document.getElementById('sizeOtherInput');
+
+  sizeSelect.addEventListener('change', () => {
+    if (sizeSelect.value === 'Khác') {
+      sizeOtherWrap.classList.add('show');
+      sizeOtherInput.setAttribute('required', 'required');
+    } else {
+      sizeOtherWrap.classList.remove('show');
+      sizeOtherInput.removeAttribute('required');
+    }
+  });
+
+  // === DÁN URL WEB APP CỦA GOOGLE APPS SCRIPT VÀO ĐÂY ===
+  const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwatFfjAMlDLigloRyGGE-7bzv1X2s-9MhPtEEtub4/exec";
+
+  const fugaForm = document.getElementById('fugaForm');
+
+  fugaForm.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const formData = new FormData(fugaForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    const submitBtn = fugaForm.querySelector('.submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Đang gửi...';
+
+    fetch(GOOGLE_SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors', // Apps Script không trả CORS header, nên không đọc được response — luôn coi là thành công
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      fugaForm.style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+    })
+    .catch(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Gửi đăng ký';
+      alert('Có lỗi khi gửi đăng ký, vui lòng thử lại.');
+    });
+  });
+</script>
+
+</body>
+</html>
